@@ -40,14 +40,13 @@
 
  ### Privacy Risk Assessment
 
- | Data/Risk |                            Likelihood | Impact | Risk Level | Mitigation |
-| --- | --- | --- | --- | --- |
+| Data/Risk |                                 Likelihood | Impact |  Risk Level |            Mitigation |
 | Unauthorized access to patient records     | Medium |     High |      High |          Strong authentication and role-based access control |
-| Leakage of medical information | Medium    | High |       High |      High |          Encryption and secure data transmission |
+| Leakage of medical information             | Medium |     High |      High |          Encryption and secure data transmission |
 | Unnecessary collection of personal data    | Medium |     Medium |    Medium |        Data minimization |
-| Patient data retained for too long         | Low |        High |     Medium |         Define a proper retention and deletion policy |
-| Incorrect patient information              | Medium |     High |     High |           Data verification and correction mechanisms |
-| Unauthorized sharing with third parties    | Low |        High |    Medium |          Data-sharing controls and confidentiality agreements |
+| Patient data retained for too long         | Low |        High |      Medium |        Define a proper retention and deletion policy |
+| Incorrect patient information              | Medium |     High |      High |          Data verification and correction mechanisms |
+| Unauthorized sharing with third parties    | Low |        High |      Medium |        Data-sharing controls and confidentiality agreements |
 
 ### Privacy Protection Measures
 
