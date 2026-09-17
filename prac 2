@@ -1,54 +1,69 @@
-# Aim -To conduct a Privacy Impact Assessment (PIA) of an online student attendance system and identify potential privacy risks and suitable measures to mitigate them.
 
-## System Selected
+# Practical 2: Privacy Impact Assessment of a Hospital Patient Management System
 
-### Online Student Attendance Management System
+ ## Aim- To conduct a Privacy Impact Assessment (PIA) of a hospital patient management system and identify potential privacy risks and suitable measures to mitigate them.
 
-### Requirements
-Internet connection
-Web browser
-Basic knowledge of data privacy
+ ### Hospital Patient Management System
 
-### Introduction
-- A Privacy Impact Assessment (PIA) is a process used to identify and evaluate privacy risks associated with a system that collects or processes personal data.
+ ### Requirements
 
-### Procedure
+ - Internet connection
+- Web browser
+- Basic knowledge of data privacy
 
-Identify the personal data collected by the system.
-Identify the purpose of collecting the data.
-Determine who can access the data.
-Identify possible privacy risks.
-Assess the likelihood and impact of each risk.
-Suggest measures to reduce or eliminate the risks.
-Data Collected
+ ## Introduction
 
-#### The system may collect:
+ - A Privacy Impact Assessment (PIA) is a process used to identify and evaluate privacy risks associated with a system that collects or processes personal data.
 
-Student name
-Roll number
-Attendance records
-Email/phone number
-Course and class information
+ ### Procedure
 
-| Data/Risk                               | Likelihood | Impact | Risk Level | Mitigation                      |
-| --------------------------------------- | ---------- | ------ | -------- | --------------------------------- |
-| Unauthorized access to student records  | Medium     | High   |  High    | Access control and authentication |
-| Leakage of attendance data              | Medium     | Medium |  Medium  | Encryption                        |
-| Unnecessary collection of personal data | Medium     | Medium |  Medium  | Data minimization                 |
-| Data kept for too long                  | Low        | Medium |  Low     | Define retention period           |
-| Incorrect student information           | Medium     | Medium |  Medium  | Allow correction and verification |
+ - Identify the personal data collected by the system.
+- Identify the purpose of collecting the data.
+- Determine who can access the data.
+- Identify possible privacy risks.
+- Assess the likelihood and impact of each risk.
+- Suggest measures to reduce or eliminate the risks.
+
+ ### Data Collected
+
+ #### The system may collect:
+
+ - Patient name
+- Patient ID
+- Age and date of birth
+- Contact information
+- Medical history
+- Diagnosis and treatment records
+- Prescription and laboratory reports
+- Appointment information
+- Billing and insurance information
+
+ ### Privacy Risk Assessment
+
+ | Data/Risk |                            Likelihood | Impact | Risk Level | Mitigation |
+| --- | --- | --- | --- | --- |
+| Unauthorized access to patient records     | Medium |     High |      High |          Strong authentication and role-based access control |
+| Leakage of medical information | Medium    | High |       High |      High |          Encryption and secure data transmission |
+| Unnecessary collection of personal data    | Medium |     Medium |    Medium |        Data minimization |
+| Patient data retained for too long         | Low |        High |     Medium |         Define a proper retention and deletion policy |
+| Incorrect patient information              | Medium |     High |     High |           Data verification and correction mechanisms |
+| Unauthorized sharing with third parties    | Low |        High |    Medium |          Data-sharing controls and confidentiality agreements |
 
 ### Privacy Protection Measures
-1. Use strong authentication for teachers and administrators.
-2. Encrypt sensitive student information.
-3. Give users access only to the data they need.
-4. Collect only necessary information.
-5. Define a proper data retention and deletion policy.
-6. Regularly review the system for privacy risks.
 
+ 1. Use strong authentication for doctors, staff, and administrators.
+2. Implement role-based access so users can access only necessary information.
+3. Encrypt sensitive patient information during storage and transmission.
+4. Collect only the personal information required for healthcare services.
+5. Maintain proper data retention and secure deletion policies.
+6. Keep audit logs of access to patient records.
+7. Provide patients with appropriate mechanisms to view and correct their information.
+8. Regularly review the system for privacy and security risks.
 
-### Result
-The Privacy Impact Assessment of the Online Student Attendance Management System was successfully performed, and potential privacy risks and their mitigation measures were identified.
+ ### Result
 
-### Conclusion
-The PIA shows that student attendance systems can involve several privacy risks, particularly unauthorized access and data leakage. Implementing access control, encryption, data minimization, and proper retention policies can help protect students' personal information.
+ The Privacy Impact Assessment of the Hospital Patient Management System was successfully performed, and potential privacy risks and their mitigation measures were identified.
+
+ ### Conclusion
+
+ The PIA shows that hospital patient management systems handle highly sensitive personal and medical information. Unauthorized access, data leakage, incorrect information, and unauthorized data sharing can create significant privacy risks. Implementing strong authentication, access control, encryption, data minimization, and proper retention policies can help protect patient information.
