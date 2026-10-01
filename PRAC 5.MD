@@ -1,4 +1,4 @@
-# PRACTICAL 3
+
 
 
 Implementation of Data Anonymization Techniques Using a Sample Dataset
@@ -354,51 +354,3 @@ K-anonymity was demonstrated by generalizing exact ages into age groups. Data ma
 
 Thus, data anonymization techniques can help reduce privacy risks while allowing data to remain useful for analysis.
 
-Viva Questions and Answers
-1. What is data anonymization?
-
-Data anonymization is the process of modifying data to reduce the possibility of identifying individuals.
-
-2. What is k-anonymity?
-
-K-anonymity makes each record indistinguishable from at least k-1 other records based on selected attributes.
-
-3. What does k = 2 mean?
-
-It means that each relevant combination of selected attributes should occur at least twice.
-
-4. What is differential privacy?
-
-Differential privacy is a mathematical approach that limits how much information about an individual can be learned from released data.
-
-5. Why do we add noise in differential privacy?
-
-Noise makes it harder to infer information about a particular individual from the released statistical result.
-
-6. What is data masking?
-
-Data masking hides part of sensitive information while keeping some information visible.
-
-7. Give an example of data masking.
-Original: 9876543210
-Masked:   98******10
-
-8. Why did we use age groups?
-
-Age groups reduce the precision of the age information and make individual records less distinguishable.
-
-9. Which library is used to create the dataset?
-
-Pandas is used.
-
-10. Which library is used for random noise?
-
-NumPy is used.
-
-11. Can anonymized data always be considered completely anonymous?
-
-No. Re-identification can sometimes be possible if additional information is available.
-
-12. Why is data anonymization important?
-
-It helps reduce privacy risks when personal data is analyzed, stored, or shared.
