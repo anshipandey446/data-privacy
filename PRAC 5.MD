@@ -1,65 +1,54 @@
+DATA PRIVACY PRACTICAL
+Practical No. 5
+Title
 
-
-
-Implementation of Data Anonymization Techniques Using a Sample Dataset
+Implementation of Data Anonymization Techniques Using Amazon Sample Data
 
 Aim
 
-To study and implement data anonymization techniques such as k-anonymity, differential privacy, and data masking using a sample student dataset.
+To study and implement data anonymization techniques such as k-anonymity, differential privacy, and data masking using a sample Amazon e-commerce dataset.
 
 Objectives
 
-To understand the concept of data anonymization.
+To understand data anonymization.
 
-To protect sensitive information in a dataset.
+To protect sensitive customer information.
 
 To implement k-anonymity.
 
-To implement a simple demonstration of differential privacy.
+To demonstrate differential privacy.
 
 To implement data masking.
 
-To understand the importance of anonymization in data privacy.
+To understand the importance of privacy in e-commerce data.
 
 1. Introduction
 
-Data anonymization is the process of modifying or removing information from a dataset to reduce the risk of identifying individuals.
+E-commerce websites store large amounts of customer and order information. Such data may contain sensitive information such as customer names, email addresses, locations, and purchase details.
 
-In this practical, we use a fictional student dataset containing:
+Data anonymization modifies or removes sensitive information so that data can be analyzed while reducing privacy risks.
 
-Student ID
+In this practical, we use a fictional Amazon-style dataset and apply:
 
-Name
+K-Anonymity
 
-Age
+Differential Privacy
 
-City
+Data Masking
 
-Email
+2. Amazon Sample Dataset
 
-Marks
+The following is a fictional dataset created for this practical.
 
-We apply three techniques:
-
-K-Anonymity – Generalizes identifying information.
-
-Differential Privacy – Adds random noise to statistical results.
-
-Data Masking – Hides part of sensitive information.
-
-2. Sample Dataset
-
-The following fictional dataset is used for the practical.
-
-Student_ID	Name	Age	City	Email	Marks
-S001	Rahul	21	Delhi	rahul@gmail.com	85
-S002	Priya	22	Delhi	priya@gmail.com	78
-S003	Aman	25	Mumbai	aman@gmail.com	91
-S004	Neha	26	Mumbai	neha@gmail.com	88
-S005	Rohit	31	Delhi	rohit@gmail.com	74
-S006	Anjali	32	Delhi	anjali@gmail.com	82
-S007	Karan	23	Delhi	karan@gmail.com	89
-S008	Pooja	24	Mumbai	pooja@gmail.com	76
+Order_ID	Customer	Age	City	Email	Product	Category	Price	Rating
+A001	Rahul	21	Delhi	rahul@gmail.com	Laptop	Electronics	55000	4.5
+A002	Priya	22	Delhi	priya@gmail.com	Headphones	Electronics	2500	4.2
+A003	Aman	25	Mumbai	aman@gmail.com	Smartphone	Electronics	30000	4.4
+A004	Neha	26	Mumbai	neha@gmail.com	Smartwatch	Electronics	5000	4.1
+A005	Rohit	31	Delhi	rohit@gmail.com	Shoes	Fashion	3000	4.0
+A006	Anjali	32	Delhi	anjali@gmail.com	Handbag	Fashion	2500	4.3
+A007	Karan	23	Delhi	karan@gmail.com	Keyboard	Electronics	1800	4.5
+A008	Pooja	24	Mumbai	pooja@gmail.com	Dress	Fashion	2200	4.1
 3. Requirements
 Software
 
@@ -72,23 +61,19 @@ NumPy
 Jupyter Notebook / Google Colab / VS Code
 
 Installation
-
-Run:
-
 pip install pandas numpy
 
-4. Create the Dataset
+4. Create the Amazon Dataset
 Program
 import pandas as pd
 
-# Create sample dataset
 data = {
-    "Student_ID": [
-        "S001", "S002", "S003", "S004",
-        "S005", "S006", "S007", "S008"
+    "Order_ID": [
+        "A001", "A002", "A003", "A004",
+        "A005", "A006", "A007", "A008"
     ],
 
-    "Name": [
+    "Customer": [
         "Rahul", "Priya", "Aman", "Neha",
         "Rohit", "Anjali", "Karan", "Pooja"
     ],
@@ -111,45 +96,78 @@ data = {
         "pooja@gmail.com"
     ],
 
-    "Marks": [85, 78, 91, 88, 74, 82, 89, 76]
+    "Product": [
+        "Laptop",
+        "Headphones",
+        "Smartphone",
+        "Smartwatch",
+        "Shoes",
+        "Handbag",
+        "Keyboard",
+        "Dress"
+    ],
+
+    "Category": [
+        "Electronics",
+        "Electronics",
+        "Electronics",
+        "Electronics",
+        "Fashion",
+        "Fashion",
+        "Electronics",
+        "Fashion"
+    ],
+
+    "Price": [
+        55000, 2500, 30000, 5000,
+        3000, 2500, 1800, 2200
+    ],
+
+    "Rating": [
+        4.5, 4.2, 4.4, 4.1,
+        4.0, 4.3, 4.5, 4.1
+    ]
 }
 
 df = pd.DataFrame(data)
 
-print("Original Dataset:")
+print("Original Amazon Dataset:")
 print(df)
 
 Output
-  Student_ID    Name  Age    City             Email  Marks
-0       S001   Rahul   21   Delhi     rahul@gmail.com     85
-1       S002   Priya   22   Delhi     priya@gmail.com     78
-2       S003    Aman   25  Mumbai      aman@gmail.com     91
-3       S004    Neha   26  Mumbai       neha@gmail.com     88
-4       S005   Rohit   31   Delhi     rohit@gmail.com     74
-5       S006  Anjali   32   Delhi    anjali@gmail.com     82
-6       S007   Karan   23   Delhi     karan@gmail.com     89
-7       S008   Pooja   24  Mumbai     pooja@gmail.com     76
-
-Result
-
-The sample student dataset was successfully created.
+  Order_ID Customer  Age    City             Email      Product
+0     A001   Rahul   21   Delhi     rahul@gmail.com       Laptop
+1     A002   Priya   22   Delhi     priya@gmail.com   Headphones
+2     A003    Aman   25  Mumbai      aman@gmail.com   Smartphone
+3     A004    Neha   26  Mumbai       neha@gmail.com  Smartwatch
+4     A005   Rohit   31   Delhi     rohit@gmail.com        Shoes
+5     A006  Anjali   32   Delhi    anjali@gmail.com      Handbag
+6     A007   Karan   23   Delhi     karan@gmail.com     Keyboard
+7     A008   Pooja   24  Mumbai     pooja@gmail.com        Dress
 
 5. K-Anonymity
 Theory
 
-K-anonymity makes individuals less distinguishable by generalizing identifying information.
+K-anonymity reduces the possibility of identifying a person by making records similar based on selected attributes.
 
-For this practical, we use k = 2.
+Here, we use k = 2.
 
-We generalize the exact age into age groups:
+We remove direct identifiers such as:
+
+Customer name
+
+Order ID
+
+Email
+
+We also generalize age into age groups.
+
+For example:
 
 21 → 20-30
 22 → 20-30
 31 → 31-40
 32 → 31-40
-
-
-We also remove direct identifiers such as Student ID and Name.
 
 Program
 # Create age groups
@@ -160,7 +178,9 @@ df["Age_Group"] = pd.cut(
 )
 
 # Remove direct identifiers
-k_data = df[["Age_Group", "City", "Marks"]]
+k_data = df[
+    ["Age_Group", "City", "Category", "Price"]
+]
 
 print("K-Anonymized Dataset:")
 print(k_data)
@@ -178,15 +198,15 @@ print(group_count)
 Output
 K-Anonymized Dataset:
 
-  Age_Group    City  Marks
-0     20-30   Delhi     85
-1     20-30   Delhi     78
-2     20-30  Mumbai     91
-3     20-30  Mumbai     88
-4     31-40   Delhi     74
-5     31-40   Delhi     82
-6     20-30   Delhi     89
-7     20-30  Mumbai     76
+  Age_Group    City     Category  Price
+0     20-30   Delhi  Electronics  55000
+1     20-30   Delhi  Electronics   2500
+2     20-30  Mumbai  Electronics  30000
+3     20-30  Mumbai  Electronics   5000
+4     31-40   Delhi       Fashion   3000
+5     31-40   Delhi       Fashion   2500
+6     20-30   Delhi  Electronics   1800
+7     20-30  Mumbai       Fashion   2200
 
 Group Counts:
 
@@ -195,22 +215,22 @@ Age_Group  City
            Mumbai    3
 31-40      Delhi     2
 
-
-Since every group contains at least 2 records, the selected quasi-identifiers satisfy 2-anonymity in this simplified example.
-
 Result
 
-The exact ages and direct identifiers were removed/generalized, making individual students less distinguishable based on the selected attributes.
+The direct identifiers were removed and the exact ages were generalized into age groups. Each selected age-group/city combination has at least two records, demonstrating 2-anonymity for those attributes.
 
 6. Data Masking
 Theory
 
-Data masking hides part of sensitive information while keeping some information visible.
+Data masking hides part of sensitive information.
 
 For example:
 
 Original: rahul@gmail.com
 Masked:   ra***@gmail.com
+
+
+This allows the data to be displayed without revealing the complete email address.
 
 Program
 def mask_email(email):
@@ -227,120 +247,126 @@ def mask_email(email):
 # Apply masking
 df["Masked_Email"] = df["Email"].apply(mask_email)
 
-print("Masked Email Data:")
+print("Masked Customer Emails:")
 
-print(df[["Name", "Email", "Masked_Email"]])
+print(
+    df[["Customer", "Email", "Masked_Email"]]
+)
 
 Output
-     Name             Email       Masked_Email
+  Customer             Email       Masked_Email
 0   Rahul     rahul@gmail.com     ra***@gmail.com
 1   Priya     priya@gmail.com     pr***@gmail.com
-2    Aman      aman@gmail.com      am**@gmail.com
-3    Neha       neha@gmail.com      ne**@gmail.com
+2   Aman       aman@gmail.com      am**@gmail.com
+3   Neha       neha@gmail.com      ne**@gmail.com
 4   Rohit     rohit@gmail.com     ro***@gmail.com
-5  Anjali    anjali@gmail.com     an****@gmail.com
+5   Anjali   anjali@gmail.com     an****@gmail.com
 6   Karan     karan@gmail.com     ka***@gmail.com
 7   Pooja     pooja@gmail.com     po***@gmail.com
 
 Result
 
-The sensitive portions of the email addresses were hidden using data masking.
+The email addresses were successfully masked to protect customer information.
 
 7. Differential Privacy
 Theory
 
-Differential privacy protects individual information by adding controlled random noise to statistical results.
+Differential privacy protects individual information by adding controlled random noise to a statistical result.
 
-Here, we calculate the average marks and add random noise to it.
+In this practical, we calculate the average product price and add random noise.
 
 Actual Average → Add Noise → Privacy-Protected Average
 
 Program
 import numpy as np
 
-# Calculate actual average
-actual_average = df["Marks"].mean()
+# Calculate actual average price
+actual_average = df["Price"].mean()
 
 # Generate random noise
-noise = np.random.normal(0, 2)
+noise = np.random.normal(0, 1000)
 
 # Add noise
 private_average = actual_average + noise
 
-print("Actual Average Marks:",
-      round(actual_average, 2))
+print(
+    "Actual Average Price:",
+    round(actual_average, 2)
+)
 
-print("Private Average Marks:",
-      round(private_average, 2))
+print(
+    "Private Average Price:",
+    round(private_average, 2)
+)
 
 Sample Output
-Actual Average Marks: 82.88
-Private Average Marks: 84.12
+Actual Average Price: 12625.0
+Private Average Price: 13412.56
 
 
-The private average may be different each time because random noise is generated.
+The private value can be different each time because random noise is generated.
 
 Result
 
-Random noise was added to the average marks, demonstrating the basic idea of differential privacy.
+Random noise was added to the average product price, demonstrating the basic idea of differential privacy.
 
-Note: This is a simplified educational demonstration. A real differential-privacy system uses a formal privacy budget and carefully calibrated noise.
+Note: This is a simplified educational demonstration. Real differential-privacy systems use formal privacy parameters and carefully calibrated noise.
 
 8. Final Anonymized Dataset
 
-After applying anonymization, sensitive information can be represented as follows:
+After applying the anonymization techniques, sensitive information can be represented as:
 
-Age Group	City	Masked Email	Marks
-20-30	Delhi	ra***@gmail.com	85
-20-30	Delhi	pr***@gmail.com	78
-20-30	Mumbai	am**@gmail.com	91
-20-30	Mumbai	ne**@gmail.com	88
-31-40	Delhi	ro***@gmail.com	74
-31-40	Delhi	an****@gmail.com	82
-20-30	Delhi	ka***@gmail.com	89
-20-30	Mumbai	po***@gmail.com	76
-9. Comparison
-Technique	What it does	Example
-K-Anonymity	Generalizes information	21 → 20-30
-Differential Privacy	Adds noise to results	82.88 → 84.12
-Data Masking	Hides sensitive information	rahul@gmail.com → ra***@gmail.com
-10. Applications
+Age Group	City	Category	Masked Email	Price
+20-30	Delhi	Electronics	ra***@gmail.com	55000
+20-30	Delhi	Electronics	pr***@gmail.com	2500
+20-30	Mumbai	Electronics	am**@gmail.com	30000
+20-30	Mumbai	Electronics	ne**@gmail.com	5000
+31-40	Delhi	Fashion	ro***@gmail.com	3000
+31-40	Delhi	Fashion	an****@gmail.com	2500
+20-30	Delhi	Electronics	ka***@gmail.com	1800
+20-30	Mumbai	Fashion	po***@gmail.com	2200
+9. Comparison of Techniques
+Technique	Purpose	Applied To
+K-Anonymity	Makes records less distinguishable	Age and City
+Differential Privacy	Adds noise to statistical results	Average Price
+Data Masking	Hides sensitive information	Customer Email
+10. Applications in E-Commerce
 
-Data anonymization is used in:
+Anonymization can be used in e-commerce for:
 
-Healthcare
+Customer data analysis
 
-Banking
+Product recommendation research
 
-Education
+Sales analysis
 
-Research
+Market research
 
-Government databases
-
-Customer analytics
+Fraud analysis
 
 Machine learning
 
 Business intelligence
 
+Sharing datasets with researchers
+
 11. Advantages
 
-Protects personal information.
+Protects customer information.
 
 Reduces privacy risks.
 
-Allows useful analysis of data.
+Allows useful data analysis.
 
-Helps organizations share data more safely.
+Helps protect sensitive customer details.
 
-Reduces exposure of sensitive information.
+Makes data sharing safer.
 
 12. Limitations
 
-Anonymization does not always guarantee complete anonymity.
+Anonymization does not guarantee complete anonymity.
 
-Anonymized data may sometimes be re-identified when combined with other information.
+Anonymized data can sometimes be re-identified using additional information.
 
 Too much anonymization can reduce the usefulness of data.
 
@@ -348,9 +374,9 @@ Different datasets require different privacy techniques.
 
 13. Conclusion
 
-In this practical, a sample student dataset containing personal information was created and three data anonymization techniques were implemented.
+In this practical, a fictional Amazon-style e-commerce dataset was created and three data anonymization techniques were applied.
 
-K-anonymity was demonstrated by generalizing exact ages into age groups. Data masking was used to hide portions of email addresses. Differential privacy was demonstrated by adding random noise to the average marks.
+K-anonymity was used to generalize customer ages and remove direct identifiers. Data masking was used to hide portions of customer email addresses. Differential privacy was demonstrated by adding random noise to the average product price.
 
-Thus, data anonymization techniques can help reduce privacy risks while allowing data to remain useful for analysis.
+These techniques demonstrate how sensitive e-commerce data can be processed while reducing privacy risks.
 
