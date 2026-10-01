@@ -109,7 +109,6 @@ Decrypted: Hello, this is private data
 
  The message was successfully encrypted and decrypted.
 
----
 
  # Part B: Hashing
 
